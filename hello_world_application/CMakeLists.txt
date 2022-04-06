@@ -8,7 +8,7 @@ set(CMAKE_CURRENT_SOURCE_DIR /Users/daniildanilov/lab04_timp)
 
 add_executable(hello_world ${CMAKE_CURRENT_SOURCE_DIR}/hello_world_application/hello_world.cpp)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/formatter_lib ${CMAKE_CURRENT_SOURCE_DIR}/formatter_ex_lib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib)
 
 find_library(formatter_ex NAMES libformatter_ex.a PATHS ${CMAKE_CURRENT_SOURCE_DIR}/formatter_ex_lib)
 find_library(formatter NAMES libformatter.a PATHS ${CMAKE_CURRENT_SOURCE_DIR}/formatter_lib)
