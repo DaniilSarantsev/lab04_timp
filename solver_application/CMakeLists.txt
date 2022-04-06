@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(solver_app)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-add_executable(solver equation.cpp)
+add_executable(solver_app equation.cpp)
 
 add_library(${PROJECT_NAME}_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/../solver_lib/solver.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/../solver_lib/solver.h)
