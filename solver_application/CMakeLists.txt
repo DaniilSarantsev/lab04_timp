@@ -2,10 +2,15 @@ cmake_minimum_required(VERSION 3.10)
 project(solver_app)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CURRENT_SOURCE_DIR /Users/daniildanilov/lab03_timp)
-add_executable(solver_app ${CMAKE_CURRENT_SOURCE_DIR}/solver_application/equation.cpp)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/formatter_lib ${CMAKE_CURRENT_SOURCE_DIR}/formatter_ex_lib ${CMAKE_CURRENT_SOURCE_DIR}/solver_lib)
-find_library(formatter NAMES libformatter.a PATHS ${CMAKE_CURRENT_SOURCE_DIR}/formatter_lib)
-find_library(formatter_ex NAMES libformatter_ex.a PATHS ${CMAKE_CURRENT_SOURCE_DIR}/formatter_ex_lib)
-find_library(solver_lib NAMES libsolver_lib.a PATHS ${CMAKE_CURRENT_SOURCE_DIR}/solver_lib)
-target_link_libraries(solver_app ${CMAKE_CURRENT_SOURCE_DIR}/formatter_lib/_build/libformatter.a ${CMAKE_CURRENT_SOURCE_DIR}/formatter_ex_lib/_build/libformatter_ex.a ${CMAKE_CURRENT_SOURCE_DIR}/solver_lib/_build/libsolver_lib.a)
+add_executable(solver equation.cpp)
+
+add_library(${PROJECT_NAME}_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/../solver_lib/solver.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/../solver_lib/solver.h)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib formatter_ex)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../solver_lib)
+
+
+target_link_libraries(${PROJECT_NAME} formatter_ex solver_lib)
