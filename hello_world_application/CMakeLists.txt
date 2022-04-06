@@ -12,7 +12,5 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib)
 find_library(formatter_ex NAMES libformatter_ex.a PATHS ${CMAKE_CURRENT_SOURCE_DIR}/formatter_ex_lib)
 find_library(formatter NAMES libformatter.a PATHS ${CMAKE_CURRENT_SOURCE_DIR}/formatter_lib)
 
-target_link_libraries(hello_world /Users/daniildanilov/lab03_timp/formatter_lib/_build/libformatter.a)
-target_link_libraries(hello_world /Users/daniildanilov/lab03_timp/formatter_ex_lib/_build/libformatter_ex.a)
 target_link_libraries(${PROJECT_NAME} formatter_ex)
 
