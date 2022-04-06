@@ -32,7 +32,7 @@ jobs:
         cmake . -DCMAKE_CXX_COMPILER=clang++
         cmake -H. -B_build
         cmake --build _build
-        cd .
+        cd 
 
 
     - name: hello_world_build
